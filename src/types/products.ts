@@ -1,4 +1,3 @@
-import products from '@/db/products';
 import { z } from 'zod';
 
 // Define a schema for the SKU
