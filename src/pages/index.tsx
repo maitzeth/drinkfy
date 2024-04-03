@@ -1,17 +1,11 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
 import { getProducts } from '@/common/api/products';
 import { GetServerSideProps } from 'next';
-
-// const inter = Inter({ subsets: ["latin"] });
 
 type HomeProps = {
   products: any[];
 }
 
 export default function Home({ products }: HomeProps) {
-  console.log(products);
-
   return (
     <main>
       <h1>Drinkfy</h1>
