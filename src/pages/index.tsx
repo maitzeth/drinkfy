@@ -1,12 +1,14 @@
 import { getProducts } from '@/common/api/products';
+import { ProductData } from '@/types/products';
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 
 type HomeProps = {
-  products: any[];
+  products: ProductData[];
 }
 
 export default function Home({ products }: HomeProps) {
+  console.log(products);
   return (
     <main>
       <h1>Drinkfy</h1>
@@ -24,9 +26,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
       },
     };
   } catch (error) {
-    console.log('zzzz')
     return {
-      props: {},
+      props: {
+        products: [],
+      },
     };
   }
 };
