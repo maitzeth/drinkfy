@@ -1,7 +1,7 @@
 import { getProducts } from '@/common/api/products';
 import { ProductData } from '@/types/products';
 import { GetServerSideProps } from 'next';
-import Link from 'next/link';
+import { Container } from '@/components';
 
 type HomeProps = {
   products: ProductData[];
@@ -10,10 +10,9 @@ type HomeProps = {
 export default function Home({ products }: HomeProps) {
   console.log(products);
   return (
-    <main>
-      <h1>Drinkfy</h1>
-      <Link href="/5-modelo-especial">Ir a detalle</Link>
-    </main>
+    <Container className="relative bg-white-dark-1">
+      <h1>qweqweqwe</h1>
+    </Container>
   );
 }
 

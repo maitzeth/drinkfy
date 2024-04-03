@@ -14,10 +14,16 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        "accent": "#FF9F24",
+        "accent": {
+          DEFAULT: "#FF9F24",
+        },
         "black": {
           DEFAULT: "#0F0D23",
-          light: "#969696"
+          'light-1': '#646464',
+          'light-2': "#969696"
+        },
+        "white": {
+          'dark-1': '#FAFAFA',
         }
       },
     },
