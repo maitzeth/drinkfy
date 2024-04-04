@@ -12,6 +12,25 @@ import { pathNames } from '@/common/constants';
 
 const listIconClassName = 'w-11 h-11 rounded-full bg-transparent flex items-center justify-center relative'; 
 
+const navigationItems = [
+  {
+    icon: HomeIcon,
+    href: pathNames.home,
+  },
+  {
+    icon: CheckOutIcon,
+    href: pathNames.checkout,
+  },
+  {
+    icon: ShoppingBagIcon,
+    href: pathNames.cart,
+  },
+  {
+    icon: SettingIcon,
+    href: pathNames.settings,
+  },
+];
+
 export const Navbar = () => {
   const { count } = useCartStore();
   const pathname = usePathname();
@@ -20,29 +39,19 @@ export const Navbar = () => {
     <Fragment>
       <nav className="px-4 py-4 bg-white fixed bottom-0 w-full">
         <ul className="flex justify-between max-w-80 mx-auto">
-          <li className={cn(listIconClassName)}>
-            <Link href={pathNames.home}>
-              <HomeIcon status={pathname === pathNames.home ? 'active' : 'default'} />
-            </Link>
-          </li>
-          <li className={cn(listIconClassName)}>
-            <Link href={pathNames.checkout}>
-              <CheckOutIcon status={pathname === pathNames.checkout ? 'active' : 'default'} />
-            </Link>
-          </li>
-          <li className={cn(listIconClassName)}>
-            <Link href={pathNames.cart} className="relative">
-              {count > 0 && (
-                <NotificationDot className="top-[2px] right-[1px]" />
-              )}
-              <ShoppingBagIcon status={pathname === pathNames.cart ? 'active' : 'default'} />
-            </Link>
-          </li>
-          <li className={cn(listIconClassName)}>
-            <Link href={pathNames.settings}>
-              <SettingIcon status={pathname === pathNames.settings ? 'active' : 'default'} />
-            </Link>
-          </li>
+          {navigationItems.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <li key={index} className={cn(listIconClassName)}>
+                <Link href={item.href} className="relative">
+                  {count > 0 && item.href === pathNames.cart && (
+                    <NotificationDot className="top-[2px] right-[1px]" />
+                  )}
+                  <Icon status={pathname === item.href ? 'active' : 'default'} />
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </nav>
     </Fragment>
