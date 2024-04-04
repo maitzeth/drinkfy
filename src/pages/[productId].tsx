@@ -24,6 +24,7 @@ export default function ProductPage({ product }: Props) {
       toast.error('Product not found');
       router.push(pathNames.home);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [product]);
   
   if (product) {

@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
     10167: {
         stock: 130,
