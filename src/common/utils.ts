@@ -11,7 +11,7 @@ export const parseToUrl = (inputString: string) => {
   // Replace spaces with hyphens
   let convertedString = lowercaseString.replace(/ /g, '-');
   return convertedString.trim();
-}
+};
 
 export const formatCurrency = (value: number) => {
   // !important HELP NEEDED 
@@ -26,4 +26,24 @@ export const formatCurrency = (value: number) => {
   const dollars = Math.floor(value / 100);
   const cents = value % 100;
   return `$${dollars}.${cents.toString().padStart(2, '0')}`;
-}
+};
+
+export const getSlugElements = (slug: string) => {
+  const idSlug = slug.split('_').at(0);
+
+  if (idSlug) {
+    const parsedId = parseInt(idSlug);
+
+    console.log(parsedId);
+  
+    if (isNaN(parsedId)) {
+      return false;
+    }
+
+    return idSlug;
+  }
+
+  return false;
+};
+
+
