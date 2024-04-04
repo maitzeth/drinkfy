@@ -21,6 +21,10 @@ const config: Config = {
           '2': "#969696",
           '3': '#323232',
         },
+        "gray": {
+          DEFAULT: "#F7F7F7",
+          '1': '#C4C4C4',
+        },
         "white": {
           DEFAULT: '#FFFFFF',
           '1': '#FAFAFA',

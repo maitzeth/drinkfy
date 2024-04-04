@@ -8,6 +8,7 @@ import {
   ButtonTertiary,
   ButtonQuaternary,
   ButtonQuinary,
+  SearchInput
 } from '@/components';
 import { ShoppingBagIcon } from '@/icons/ShoppingBag';
 import { PlusIcon } from '@/icons/PlusIcon';
@@ -22,6 +23,7 @@ export default function Home({ products }: HomeProps) {
   console.log(products);
   return (
     <Container className="relative bg-white-1 space-y-10 py-20">
+      <SearchInput placeholder="Search burger, pizza, drink or ect..." onChange={() => {}} />
       <ButtonPrimary type="button" onClick={() => console.log('testing...')}>
         Add to cart
       </ButtonPrimary>
