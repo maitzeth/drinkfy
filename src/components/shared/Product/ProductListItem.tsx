@@ -12,7 +12,7 @@ type Props = {
 
 export const ProductListItem = ({ isOdd, data }: Props) => {
   console.log(data);
-  const { brand } = data;
+  const { brand, price } = data;
 
   return (
     <article className={cn("relative bg-white space-y-2", {
@@ -20,9 +20,13 @@ export const ProductListItem = ({ isOdd, data }: Props) => {
       'rounded-product-list': !isOdd,
     })}>
       <header>
-        <h4 className={cn("text-base text-black-3 font-medium mt-3 ml-3", {
-          'ml-5': isOdd
-        })}>{brand}</h4>
+        <h4 
+          className={cn("text-base text-black-3 font-medium mt-3 ml-3", {
+            'ml-5': isOdd
+          })}
+        >
+          {brand}
+        </h4>
       </header>
       <section>
         <div className="relative h-[145px] w-full">
@@ -36,7 +40,7 @@ export const ProductListItem = ({ isOdd, data }: Props) => {
         </div>
       </section>
       <footer className="flex justify-between items-center">
-        <p className="text-black-3 ml-4">$28.65</p>
+        <p className="text-black-3 ml-4 font-medium">${price}</p>
         <ButtonQuinary onClick={() => console.log('plus')}>
           <PlusIcon />
         </ButtonQuinary>

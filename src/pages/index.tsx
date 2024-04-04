@@ -1,4 +1,5 @@
 import { getProducts } from '@/common/api/products';
+import { getStockPriceById } from '@/common/api/stock';
 import {
   ButtonQuaternary,
   DividerTitle,
@@ -15,7 +16,6 @@ type HomeProps = {
 }
 
 export default function Home({ products }: HomeProps) {
-  console.log(products);
   return (
     <DefaultLayout className="space-y-6">
       <header className="space-y-4">
@@ -74,7 +74,20 @@ export default function Home({ products }: HomeProps) {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const products = await getProducts();
+    const productsResponse = await getProducts();
+
+    const products: ProductData[] = [];
+
+    // Assigning the price to the product
+    for (const product of productsResponse) {
+      const defaultSku = product.skus[0];
+      
+      // Maybe this can leads to performance issues, maybe an custom SQL query would be better
+      // but isnt a big deal for this example
+      const stockResponse = await getStockPriceById(defaultSku.code);
+      products.push({ ...product, price: stockResponse?.price ?? 0 });
+    }
+
     return {
       props: {
         products: JSON.parse(JSON.stringify(products)),
