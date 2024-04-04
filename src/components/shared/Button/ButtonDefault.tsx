@@ -12,6 +12,7 @@ const BASE_CLASSNAME = `
   flex
   items-center
   justify-center
+  focus
 `;
 
 export const ButtonDefault = ({ onClick, children, ...rest }: Props) => {

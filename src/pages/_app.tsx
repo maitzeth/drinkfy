@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
       }}
     >
       <NextNProgress color={TAILWIND_COLORS.accent.DEFAULT} height={4} />
-      <main className={`bg-white-1 ${inter.className} min-h-svh flex flex-col justify-between`}>
+      <main className={`bg-white-1 ${inter.className} min-h-svh flex flex-col`}>
         <Component {...pageProps} />
         <ToastContainer />
       </main>

@@ -2,7 +2,9 @@ import { cn } from '@/common/utils';
 import { ButtonBase, BaseProps } from './ButtonBase';
 import { PropsWithChildren } from 'react';
 
-type Props = PropsWithChildren<BaseProps>;
+type Props = PropsWithChildren<BaseProps> & {
+  fullWith?: boolean;
+};
 
 const BASE_CLASSNAME = `
   max-w-[247px]
@@ -17,9 +19,15 @@ const BASE_CLASSNAME = `
   disabled:opacity-50
 `;
 
-export const ButtonPrimary = ({ onClick, children, ...rest }: Props) => {
+export const ButtonPrimary = ({ onClick, children, fullWith, ...rest }: Props) => {
   return (
-    <ButtonBase onClick={onClick} className={cn(BASE_CLASSNAME)} {...rest}>
+    <ButtonBase
+      {...rest}
+      onClick={onClick}
+      className={cn(BASE_CLASSNAME, {
+        'max-w-full': fullWith
+      })}
+    >
       {children}
     </ButtonBase>
   );

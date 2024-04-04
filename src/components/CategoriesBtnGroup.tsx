@@ -1,6 +1,8 @@
 import { ButtonQuaternary } from '@/components';
 import Image from 'next/image';
 
+const btnContentClassName = "flex space-x-3 items-center -ml-10 md:ml-0";
+
 export const CategoriesBtnGroup = () => {
   return (
     <div className="flex space-x-2 w-full">
@@ -8,11 +10,11 @@ export const CategoriesBtnGroup = () => {
         All
       </ButtonQuaternary>
       <ButtonQuaternary
-        isFlexFull
         isSelected
+        isFullSize
         onClick={() => console.log('Filter by beer')}
       >
-        <div className="flex space-x-3 items-center -ml-10">
+        <div className={btnContentClassName}>
           <div>
             <Image
               src="/images/beer.png"
@@ -24,8 +26,8 @@ export const CategoriesBtnGroup = () => {
           <span>Beer</span>
         </div>
       </ButtonQuaternary> 
-      <ButtonQuaternary isFlexFull onClick={() => console.log('Filter by Wine')}>
-        <div className="flex space-x-3 items-center -ml-10">
+      <ButtonQuaternary isFullSize onClick={() => console.log('Filter by Wine')}>
+        <div className={btnContentClassName}>
           <div>
             <Image
               src="/images/wine-glass.png"
