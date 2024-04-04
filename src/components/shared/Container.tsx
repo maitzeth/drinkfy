@@ -7,7 +7,7 @@ type ContainerProps = PropsWithChildren<withClassName<{
   tag?: "div" | "section" | "main";
 }>>
 
-export const Container = ({ children, className, tag = 'main' }: ContainerProps) => {
+export const Container = ({ children, className, tag = 'div' }: ContainerProps) => {
   return createElement(
     tag,
     { className: cn('container mx-auto px-4', className) },
