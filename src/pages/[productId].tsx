@@ -55,14 +55,12 @@ export default function ProductPage({ product }: Props) {
           </header>
           <section className="space-y-2">
             <h2 className="text-lg text-black-3 font-bold">Description</h2>
-            <div className="space-y-2">
-              <TextClamp text={information} />
-            </div>
+            <TextClamp text={information} />
           </section>
           <section>
             <h2 className="text-lg text-black-3 font-bold">Size</h2>
           </section>
-          <footer className="flex justify-between gap-4">
+          <footer className="flex gap-5">
             <ButtonSecondary onClick={() => {}} icon={<ShoppingBagIcon status="active" />} />
             <ButtonPrimary onClick={() => {}}>Add to cart</ButtonPrimary>
           </footer>

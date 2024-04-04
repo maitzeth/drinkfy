@@ -17,7 +17,7 @@ type HomeProps = {
 
 export default function Home({ products }: HomeProps) {
   return (
-    <DefaultLayout className="space-y-6">
+    <DefaultLayout className="space-y-6 pb-24">
       <header className="space-y-4">
         <div className="space-y-1">
           <h2 className="text-base font-normal text-black-1">Hi Mr. Michael,</h2>
