@@ -8,9 +8,10 @@ import {
   ButtonTertiary,
   ButtonQuaternary,
   ButtonQuinary,
-  SearchInput
+  SearchInput,
+  Navbar
 } from '@/components';
-import { ShoppingBagIcon } from '@/icons/ShoppingBag';
+import { ShoppingBagIcon } from '@/components/shared/icons/ShoppingBagIcon';
 import { PlusIcon } from '@/icons/PlusIcon';
 import Image from 'next/image';
 
@@ -22,57 +23,60 @@ type HomeProps = {
 export default function Home({ products }: HomeProps) {
   console.log(products);
   return (
-    <Container className="relative bg-white-1 space-y-10 py-20">
-      <SearchInput placeholder="Search burger, pizza, drink or ect..." onChange={() => {}} />
-      <ButtonPrimary type="button" onClick={() => console.log('testing...')}>
-        Add to cart
-      </ButtonPrimary>
-      <ButtonSecondary onClick={() => console.log('secondary')} icon={<ShoppingBagIcon />} />
-      <ButtonTertiary isSelected={false} onClick={() => console.log('tertiary')}>
-        12 - 24oz
-      </ButtonTertiary>
-      <ButtonTertiary isSelected onClick={() => console.log('tertiary')}>
-        18 - 12oz
-      </ButtonTertiary>
-      <div className="flex space-x-2 w-full">
-        <ButtonQuaternary isSelected={false} onClick={() => console.log('zzz')}>
-          All
-        </ButtonQuaternary> 
-        <ButtonQuaternary
-          isFlexFull
-          isSelected
-          onClick={() => console.log('zzz')}
-        >
-          <div className="flex space-x-3 items-center -ml-10">
-            <div>
-              <Image
-                src="/images/beer.png"
-                height={20}
-                width={20}
-                alt="Your Name"
-              />
+    <>
+      <Container className="relative bg-white-1 space-y-10 py-20">
+        <SearchInput placeholder="Search burger, pizza, drink or ect..." onChange={() => {}} />
+        <ButtonPrimary type="button" onClick={() => console.log('testing...')}>
+          Add to cart
+        </ButtonPrimary>
+        <ButtonSecondary onClick={() => console.log('secondary')} icon={<ShoppingBagIcon />} />
+        <ButtonTertiary isSelected={false} onClick={() => console.log('tertiary')}>
+          12 - 24oz
+        </ButtonTertiary>
+        <ButtonTertiary isSelected onClick={() => console.log('tertiary')}>
+          18 - 12oz
+        </ButtonTertiary>
+        <div className="flex space-x-2 w-full">
+          <ButtonQuaternary isSelected={false} onClick={() => console.log('zzz')}>
+            All
+          </ButtonQuaternary> 
+          <ButtonQuaternary
+            isFlexFull
+            isSelected
+            onClick={() => console.log('zzz')}
+          >
+            <div className="flex space-x-3 items-center -ml-10">
+              <div>
+                <Image
+                  src="/images/beer.png"
+                  height={20}
+                  width={20}
+                  alt="Your Name"
+                />
+              </div>
+              <span>Beer</span>
             </div>
-            <span>Beer</span>
-          </div>
-        </ButtonQuaternary> 
-        <ButtonQuaternary isFlexFull onClick={() => console.log('zzz')}>
-          <div className="flex space-x-3 items-center -ml-10">
-            <div>
-              <Image
-                src="/images/wine-glass.png"
-                height={20}
-                width={20}
-                alt="Your Name"
-              />
+          </ButtonQuaternary> 
+          <ButtonQuaternary isFlexFull onClick={() => console.log('zzz')}>
+            <div className="flex space-x-3 items-center -ml-10">
+              <div>
+                <Image
+                  src="/images/wine-glass.png"
+                  height={20}
+                  width={20}
+                  alt="Your Name"
+                />
+              </div>
+              <span>Wine</span>
             </div>
-            <span>Wine</span>
-          </div>
-        </ButtonQuaternary>
-      </div>
-      <ButtonQuinary onClick={() => console.log('plus')}>
-        <PlusIcon />
-      </ButtonQuinary>
-    </Container>
+          </ButtonQuaternary>
+        </div>
+        <ButtonQuinary onClick={() => console.log('plus')}>
+          <PlusIcon />
+        </ButtonQuinary>
+      </Container>
+      <Navbar />
+    </>
   );
 }
 
