@@ -7,7 +7,7 @@ import {
   ButtonTertiary
 } from '@/components';
 import { ShoppingBagIcon } from '@/icons/ShoppingBagIcon';
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 import { ProductNoPriceData } from '@/types/products';
 import { ProductImage } from './ProductImage';
 import useSWR from 'swr';
@@ -15,6 +15,7 @@ import { useQueryState } from 'nuqs';
 import { StockData } from '@/types/stock';
 import { FetchError } from '@/types/common';
 import Skeleton from 'react-loading-skeleton';
+import { toast } from 'react-toastify';
 
 type Props = {
   product: ProductNoPriceData;
@@ -29,6 +30,12 @@ export const ProductDetails = ({ product }: Props) => {
   const { data, isLoading } = useSWR<StockPriceResponse>(size ? `/api/stock-price/${size}` : null, {
     refreshInterval: 5000,
   });
+
+  useEffect(() => {
+    if (data && data.error) {
+      toast.error(data.error);
+    }
+  }, [data]);
 
   return (
     <Fragment>

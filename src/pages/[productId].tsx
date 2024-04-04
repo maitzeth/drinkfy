@@ -56,7 +56,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return {
       props: {
         product: null,
-        errors: ['Product not found']
+        error: 'Product not found'
       },
     };
   }
