@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next';
 import { getSlugElements } from '@/common/utils';
 import { getProductById } from '@/common/api/products';
-import { DetailsLayout } from '@/pages/layouts/DetailsLayout';
+import { DetailsLayout } from '@/components/layouts/DetailsLayout';
 import { ProductNoPriceData } from '@/types/products';
 import { Maybe } from '@/types/common';
 import { ProductDetails } from '@/components';

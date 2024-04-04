@@ -6,7 +6,7 @@ import {
   SearchInput,
   CategoriesBtnGroup,
 } from '@/components';
-import { DefaultLayout } from '@/pages/layouts/DefaultLayout';
+import { DefaultLayout } from '@/components/layouts/DefaultLayout';
 import { ProductData } from '@/types/products';
 import { GetServerSideProps } from 'next';
 
