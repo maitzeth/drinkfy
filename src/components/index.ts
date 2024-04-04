@@ -6,6 +6,7 @@ export * from './shared/Header';
 export * from './shared/NotificationDot';
 export * from './shared/DividerTitle';
 export * from './shared/TextClamp';
+export * from './ImageWithFallback';
 // Buttons
 export * from './shared/Button/ButtonDefault';
 export * from './shared/Button/ButtonPrimary';

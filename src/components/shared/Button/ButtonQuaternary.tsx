@@ -4,7 +4,7 @@ import { PropsWithChildren } from 'react';
 
 type Props = PropsWithChildren<ButtonAttrs & CustomBaseProps & {
   isSelected?: boolean;
-  isFlexFull?: boolean;
+  isFullSize?: boolean;
 }>;
 
 const BASE_CLASSNAME = `
@@ -22,13 +22,19 @@ const BASE_CLASSNAME = `
   focus
 `;
 
-export const ButtonQuaternary = ({ onClick, children, isSelected, isFlexFull, ...rest }: Props) => {
+export const ButtonQuaternary = ({
+  onClick,
+  children,
+  isSelected,
+  isFullSize,
+  ...rest
+}: Props) => {
   return (
     <ButtonBase
       onClick={onClick}
       className={cn(BASE_CLASSNAME, {
         'bg-accent text-white': isSelected,
-        'flex-1': isFlexFull,
+        'flex-1 md:flex-none px-8': isFullSize,
       })}
       {...rest}
     >

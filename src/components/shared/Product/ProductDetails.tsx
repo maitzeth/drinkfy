@@ -4,12 +4,12 @@ import {
   ButtonSecondary,
   Container,
   TextClamp,
-  ButtonTertiary
+  ButtonTertiary,
+  ImageWithFallback
 } from '@/components';
 import { ShoppingBagIcon } from '@/icons/ShoppingBagIcon';
 import { Fragment, useEffect } from 'react';
 import { ProductNoPriceData } from '@/types/products';
-import { ProductImage } from './ProductImage';
 import useSWR from 'swr';
 import { useQueryState } from 'nuqs';
 import { StockData } from '@/types/stock';
@@ -40,9 +40,15 @@ export const ProductDetails = ({ product }: Props) => {
   return (
     <Fragment>
       <section className="relative">
-        <ProductImage src={image} productBrand={brand} />
+        <div className="relative mx-auto w-[240px] h-[240px] mt-auto">
+          <ImageWithFallback
+            src={image}
+            alt={`detailed image for ${brand}`}
+            sizes="(min-width: 768px) 100vw, (min-width: 1200px) 50vw, 33vw"
+          />
+        </div>
       </section>
-      <section className="py-8 bg-white rounded-tl-[48px] rounded-tr-[48px]">
+      <section className="py-8 bg-white rounded-tl-[48px] rounded-tr-[48px] mt-auto">
         <Container className="space-y-6">
           <header className="flex justify-between">
             <div className="space-y-1">
@@ -86,8 +92,19 @@ export const ProductDetails = ({ product }: Props) => {
             </div>
           </section>
           <footer className="flex gap-5">
-            <ButtonSecondary onClick={() => {}} icon={<ShoppingBagIcon status="active" />} />
-            <ButtonPrimary disabled={!Boolean(size)} onClick={() => {}}>Add to cart</ButtonPrimary>
+            <div className="flex-none">
+              <ButtonSecondary
+                onClick={() => {}}
+                icon={<ShoppingBagIcon status="active" />}
+              />
+            </div>
+            <ButtonPrimary
+              disabled={!Boolean(size) || !Boolean(data?.stock)}
+              onClick={() => {}}
+              fullWith
+            >
+              Add to cart
+            </ButtonPrimary>
           </footer>
         </Container>
       </section>

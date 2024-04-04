@@ -27,7 +27,7 @@ export default function Home({ products }: HomeProps) {
         <DividerTitle title="Drink Category" href="/drinks?category=all" />
         <CategoriesBtnGroup />
         <DividerTitle title="Popular" href="/drinks?popular=all" />
-        <section className="grid gap-4 grid-cols-2">
+        <section className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {products.map((product, index) => {
             const isOdd = (index + 1) % 2 === 0;
             return <ProductListItem key={product.id} isOdd={isOdd} data={product} />;
