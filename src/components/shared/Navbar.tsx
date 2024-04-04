@@ -37,7 +37,7 @@ export const Navbar = () => {
 
   return (
     <Fragment>
-      <nav className="px-4 py-4 bg-white fixed bottom-0 w-full">
+      <nav className="px-4 py-4 bg-white fixed bottom-0 w-full block xl:hidden">
         <ul className="flex justify-between max-w-80 mx-auto">
           {navigationItems.map((item, index) => {
             const Icon = item.icon;

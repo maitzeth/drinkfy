@@ -12,7 +12,7 @@ export const ImageWithFallback = ({ src, alt, sizes }: Props) => {
 
     return (
       <Image
-        src={displayErrorImg ? '/products/not-found.jpg' : src}
+        src={displayErrorImg ? '/products/not-found.png' : src}
         alt={alt}
         className="mx-auto"
         onError={() => setDisplayErrorImg(true)}

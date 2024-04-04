@@ -44,7 +44,7 @@ export const ProductListItem = ({ isOdd, data }: Props) => {
           </h4>
         </header>
         <section>
-          <div className="relative h-[145px] w-[145px] md:w-[220px] md:h-[220px] mx-auto">
+          <div className="relative h-[145px] w-[145px] md:w-[220px] md:h-[220px] xl:w-[400px] xl:h-[400px] mx-auto">
             <ImageWithFallback
               src={image}
               alt={`Image of ${brand} product`}
