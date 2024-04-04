@@ -8,48 +8,39 @@ import Link from 'next/link';
 import { cn } from '@/common/utils';
 import { NotificationDot } from '@/components';
 import { useCartStore } from '@/stores/cart';
+import { pathNames } from '@/common/constants';
 
 const listIconClassName = 'w-11 h-11 rounded-full bg-transparent flex items-center justify-center relative'; 
-// TODO
-const activeShadow = 'w-11 h-11 absolute bg-opacity-25 rounded-full';
 
 export const Navbar = () => {
   const { count } = useCartStore();
-  console.log(count);
+  const pathname = usePathname();
+
   return (
     <Fragment>
       <nav className="px-4 py-4 bg-white fixed bottom-0 w-full">
         <ul className="flex justify-between max-w-80 mx-auto">
-          <li
-            className={cn(listIconClassName)}
-          >
-            <div className={cn(activeShadow)} />
-            <Link href="/">
-              <HomeIcon status="active" />
+          <li className={cn(listIconClassName)}>
+            <Link href={pathNames.home}>
+              <HomeIcon status={pathname === pathNames.home ? 'active' : 'default'} />
             </Link>
           </li>
-          <li
-            className={cn(listIconClassName)}
-          >
-            <Link href="/">
-              <CheckOutIcon />
+          <li className={cn(listIconClassName)}>
+            <Link href={pathNames.checkout}>
+              <CheckOutIcon status={pathname === pathNames.checkout ? 'active' : 'default'} />
             </Link>
           </li>
-          <li
-            className={cn(listIconClassName)}
-          >
-            <Link href="/" className="relative">
+          <li className={cn(listIconClassName)}>
+            <Link href={pathNames.cart} className="relative">
               {count > 0 && (
                 <NotificationDot className="top-[2px] right-[1px]" />
               )}
-              <ShoppingBagIcon />
+              <ShoppingBagIcon status={pathname === pathNames.cart ? 'active' : 'default'} />
             </Link>
           </li>
-          <li
-            className={cn(listIconClassName)}
-          >
-            <Link href="/">
-              <SettingIcon />
+          <li className={cn(listIconClassName)}>
+            <Link href={pathNames.settings}>
+              <SettingIcon status={pathname === pathNames.settings ? 'active' : 'default'} />
             </Link>
           </li>
         </ul>
