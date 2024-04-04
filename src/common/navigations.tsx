@@ -10,10 +10,6 @@ export const generalNavigation = [
     href: pathNames.checkout,
   },
   {
-    name: 'Cart',
-    href: pathNames.cart,
-  },
-  {
     name: 'Settings',
     href: pathNames.settings,
   },

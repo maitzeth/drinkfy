@@ -1,7 +1,7 @@
 import { ComponentType, FC } from 'react';
 import { TAILWIND_COLORS } from '@/common/constants';
 
-const colorStatus = {
+export const colorStatus = {
   active: TAILWIND_COLORS.accent.DEFAULT,
   default: TAILWIND_COLORS.gray[2],
   white: TAILWIND_COLORS.white.DEFAULT,
