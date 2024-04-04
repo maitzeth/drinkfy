@@ -32,7 +32,11 @@ export const ProductListItem = ({ isOdd, data }: Props) => {
         'rounded-product-list md:rounded-xl': !isOdd,
       })}
     >
-      <Link href={`${id}_${parseToUrl(brand)}`} className="space-y-2 focus">
+      <Link
+        href={`${id}_${parseToUrl(brand)}`}
+        className="space-y-2 focus"
+        aria-label={`Go to ${brand} product page`}
+      >
         <header>
           <h4 
             className={cn(titleBaseClassName, "block md:hidden", {

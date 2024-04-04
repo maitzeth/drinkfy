@@ -7,7 +7,7 @@ afterEach(() => {
 });
 
 const debug = (dom?: Element | Document) => {
-  return prettyDOM(dom);
+  return console.log(prettyDOM(dom));
 };
 
 const customRender = (ui: React.ReactElement, options = {}) => {
