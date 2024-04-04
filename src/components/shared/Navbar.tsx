@@ -43,7 +43,7 @@ export const Navbar = () => {
             const Icon = item.icon;
             return (
               <li key={index} className={cn(listIconClassName)}>
-                <Link href={item.href} className="relative">
+                <Link href={item.href} className="relative focus">
                   {count > 0 && item.href === pathNames.cart && (
                     <NotificationDot className="top-[2px] right-[1px]" />
                   )}

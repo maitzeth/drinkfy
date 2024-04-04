@@ -14,7 +14,7 @@ type Props = {
 }
 
 export const ProductListItem = ({ isOdd, data }: Props) => {
-  const { brand, price, id } = data;
+  const { brand, price, id, image } = data;
   const { inc } = useCartStore();
 
   const handleAddProductToCart = () => {
@@ -30,7 +30,7 @@ export const ProductListItem = ({ isOdd, data }: Props) => {
         'rounded-product-list': !isOdd,
       })}
     >
-      <Link href={`${id}_${parseToUrl(brand)}`} className="space-y-2">
+      <Link href={`${id}_${parseToUrl(brand)}`} className="space-y-2 focus">
         <header>
           <h4 
             className={cn("text-base text-black-3 font-medium mt-3 ml-3", {
@@ -43,7 +43,7 @@ export const ProductListItem = ({ isOdd, data }: Props) => {
         <section>
           <div className="relative w-full">
             <Image
-              src="/products/modelo-especial.png"
+              src={image}
               alt="Your user avatar"
               className="mx-auto"
               width={145}
