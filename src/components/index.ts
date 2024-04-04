@@ -1,8 +1,8 @@
 // Common
 export * from './shared/Container';
 export * from './shared/SearchInput';
-export * from './shared/Navbar';
-export * from './shared/Header';
+export * from './shared/Navbar/BottomNavbar';
+export * from './shared/Navbar/HeaderNavbar';
 export * from './shared/NotificationDot';
 export * from './shared/DividerTitle';
 export * from './shared/TextClamp';

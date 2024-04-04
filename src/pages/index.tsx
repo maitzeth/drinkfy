@@ -12,7 +12,7 @@ import { GetServerSideProps } from 'next';
 
 type HomeProps = {
   products: ProductData[];
-}
+};
 
 export default function Home({ products }: HomeProps) {
   return (

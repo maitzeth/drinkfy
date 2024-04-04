@@ -8,7 +8,7 @@ export type Props = InputHTMLAttributes<HTMLInputElement> & {
 
 export const SearchInput = ({ onChange, value, placeholder, className, wrapperClassName, ...rest }: Props) => {
   return (
-    <div className={wrapperClassName}>
+    <div className={cn(wrapperClassName, 'space-y-2')}>
       <label
         htmlFor="search-input"
         className="text-black hidden md:block font-bold text-right"
