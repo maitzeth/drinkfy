@@ -14,3 +14,5 @@ export * from './shared/Button/ButtonQuaternary';
 export * from './shared/Button/ButtonQuinary';
 // Products
 export * from './shared/Product/ProductListItem';
+// Pages
+export * from './CategoriesBtnGroup';
