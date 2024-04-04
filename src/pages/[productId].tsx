@@ -6,6 +6,10 @@ import { ProductNoPriceData } from '@/types/products';
 import { Maybe } from '@/types/common';
 import { ProductDetails } from '@/components';
 import 'react-loading-skeleton/dist/skeleton.css'
+import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
+import { pathNames } from '@/common/constants';
+import { useUpdateEffect } from 'react-use';
 
 type Props = {
   product: Maybe<ProductNoPriceData>;
@@ -13,21 +17,24 @@ type Props = {
 };
 
 export default function ProductPage({ product }: Props) {
+  const router = useRouter();
 
-  if (!product) {
-    // Here we can display a toaster maybe
+  useUpdateEffect(() => {
+    if (!product) {
+      toast.error('Product not found');
+      router.push(pathNames.home)
+    }
+  }, [product]);
+  
+  if (product) {
     return (
       <DetailsLayout>
-        <h1 className="text-2xl">Something weird happened</h1>
+        <ProductDetails product={product} />
       </DetailsLayout>
     );
   }
-
-  return (
-    <DetailsLayout>
-      <ProductDetails product={product} />
-    </DetailsLayout>
-  );
+  
+  return null;
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -47,11 +54,21 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
     const productData = await getProductById(productId);
 
-    return {
-      props: {
-        product: productData,
-      },
-    };
+    if (productData) {
+      return {
+        props: {
+          product: productData,
+        },
+      };
+    } else {
+      return {
+        props: {
+          product: null,
+          error: 'Product not found'
+        },
+      };
+    }
+
   } catch (_error) {
     return {
       props: {
