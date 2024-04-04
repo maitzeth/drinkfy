@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { TAILWIND_COLORS } from './src/common/constants';
 
 const config: Config = {
   content: [
@@ -11,25 +12,7 @@ const config: Config = {
       boxShadow: {
         xs: '0 12px 73px -5px rgb(0 0 0 / 0.03)',
       },
-      colors: {
-        "accent": {
-          DEFAULT: "#FF9F24",
-        },
-        "black": {
-          DEFAULT: "#0F0D23",
-          '1': '#646464',
-          '2': "#969696",
-          '3': '#323232',
-        },
-        "gray": {
-          DEFAULT: "#F7F7F7",
-          '1': '#C4C4C4',
-        },
-        "white": {
-          DEFAULT: '#FFFFFF',
-          '1': '#FAFAFA',
-        }
-      },
+      colors: TAILWIND_COLORS,
     },
   },
   plugins: [],
