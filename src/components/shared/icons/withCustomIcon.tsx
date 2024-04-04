@@ -4,6 +4,7 @@ import { TAILWIND_COLORS } from '@/common/constants';
 const colorStatus = {
   active: TAILWIND_COLORS.accent.DEFAULT,
   default: TAILWIND_COLORS.gray[2],
+  white: TAILWIND_COLORS.white.DEFAULT,
 } as const;
 
 // This props can be extended if you need to customize the icon further

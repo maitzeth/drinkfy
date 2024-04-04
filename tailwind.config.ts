@@ -12,6 +12,10 @@ const config: Config = {
       boxShadow: {
         xs: '0 12px 73px -5px rgb(0 0 0 / 0.03)',
       },
+      borderRadius: {
+        'product-list': '12px 32px 12px 12px',
+        'product-list--odd': '32px 12px 12px 12px',
+      },
       colors: TAILWIND_COLORS,
     },
   },

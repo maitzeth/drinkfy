@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { StockData } from './stock';
 
 // Define a schema for the SKU
 export const SkuSchema = z.object({
@@ -17,6 +18,7 @@ export const ProductSchema = z.object({
   origin: z.string(),
   information: z.string(),
   skus: z.array(SkuSchema),
+  price: z.number(),
 });
 
 export type ProductData = z.infer<typeof ProductSchema>;
