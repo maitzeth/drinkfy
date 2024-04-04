@@ -6,3 +6,8 @@ import { ProductData } from '@/types/products';
 export async function getProducts(): Promise<Omit<ProductData, 'price'>[]> {
   return products;
 }
+
+export async function getProductById(id: string): Promise<Omit<ProductData, 'price'> | undefined> {
+  const product = products.find((product) => product.id === parseInt(id));
+  return product ?? undefined;
+}

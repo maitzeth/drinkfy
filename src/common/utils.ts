@@ -33,17 +33,15 @@ export const getSlugElements = (slug: string) => {
 
   if (idSlug) {
     const parsedId = parseInt(idSlug);
-
-    console.log(parsedId);
   
     if (isNaN(parsedId)) {
-      return false;
+      return null;
     }
 
     return idSlug;
   }
 
-  return false;
+  return null;
 };
 
 

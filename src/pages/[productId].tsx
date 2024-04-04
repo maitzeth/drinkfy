@@ -1,12 +1,27 @@
 import { GetServerSideProps } from 'next';
 import { getSlugElements } from '@/common/utils';
-import { DefaultLayout } from '@/pages/layouts/DetailsLayout';
+import { getProductById } from '@/common/api/products';
+import { DetailsLayout } from '@/pages/layouts/DetailsLayout';
+import { ProductNoPriceData } from '@/types/products';
+import { Maybe } from '@/types/common';
 
-export default function ProductPage() {
+type Props = {
+  product: Maybe<ProductNoPriceData>;
+  messages?: string[];
+};
+
+export default function ProductPage({ product }: Props) {
+  console.log(product);
   return (
-    <DefaultLayout>
-      <h1>Product Details</h1>
-    </DefaultLayout>
+    <DetailsLayout>
+      {/* <Image
+        src="/images/user.jpg"
+        height={40}
+        width={40}
+        alt="Your user avatar"
+        className="rounded-full"
+      /> */}
+    </DetailsLayout>
   );
 }
 
@@ -14,7 +29,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const slug = context.params?.productId as string;
   
   const productId = getSlugElements(slug);
-
+  
   if (!productId) {
     return {
       redirect: {
@@ -23,15 +38,20 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       }
     }
   }
-
+  
   try {
-    return {
-      props: {},
-    };
-  } catch (error) {
+    const productData = await getProductById(productId);
+
     return {
       props: {
-        product: {},
+        product: productData,
+      },
+    };
+  } catch (_error) {
+    return {
+      props: {
+        product: null,
+        messages: ['Product not found']
       },
     };
   }

@@ -4,13 +4,13 @@ import Image from 'next/image';
 export const CategoriesBtnGroup = () => {
   return (
     <div className="flex space-x-2 w-full">
-      <ButtonQuaternary isSelected={false} onClick={() => console.log('zzz')}>
+      <ButtonQuaternary isSelected={false} onClick={() => console.log('Filter by all')}>
         All
       </ButtonQuaternary>
       <ButtonQuaternary
         isFlexFull
         isSelected
-        onClick={() => console.log('zzz')}
+        onClick={() => console.log('Filter by beer')}
       >
         <div className="flex space-x-3 items-center -ml-10">
           <div>
@@ -24,7 +24,7 @@ export const CategoriesBtnGroup = () => {
           <span>Beer</span>
         </div>
       </ButtonQuaternary> 
-      <ButtonQuaternary isFlexFull onClick={() => console.log('zzz')}>
+      <ButtonQuaternary isFlexFull onClick={() => console.log('Filter by Wine')}>
         <div className="flex space-x-3 items-center -ml-10">
           <div>
             <Image
