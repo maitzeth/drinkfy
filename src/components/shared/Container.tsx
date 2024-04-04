@@ -10,7 +10,7 @@ type ContainerProps = PropsWithChildren<withClassName<{
 export const Container = ({ children, className, tag = 'div' }: ContainerProps) => {
   return createElement(
     tag,
-    { className: cn('container mx-auto px-4', className) },
+    { className: cn('container mx-auto px-5', className) },
     children
   );
 };
