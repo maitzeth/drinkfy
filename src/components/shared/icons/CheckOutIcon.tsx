@@ -6,7 +6,7 @@ export const CheckOutIcon = withCustomIcon(({ status }: IconProps) => {
       <path d="M9 8H14" stroke={status} strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
       <path d="M9 16H14" stroke={status} strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
       <path d="M9 12H16" stroke={status} strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-      <rect x="3.75" y="2.75" width="16.5" height="18.5" rx="3.25" stroke={status} stroke-width="1.5"/>
+      <rect x="3.75" y="2.75" width="16.5" height="18.5" rx="3.25" stroke={status} strokeWidth="1.5"/>
     </svg>
   );
 });

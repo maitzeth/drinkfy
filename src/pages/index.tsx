@@ -15,7 +15,6 @@ import { PlusIcon } from '@/icons/PlusIcon';
 import Image from 'next/image';
 import { DefaultLayout } from '@/pages/layouts/DefaultLayout';
 
-
 type HomeProps = {
   products: ProductData[];
 }
