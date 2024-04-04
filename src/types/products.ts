@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { StockData } from './stock';
 
 // Define a schema for the SKU
 export const SkuSchema = z.object({
@@ -22,3 +21,4 @@ export const ProductSchema = z.object({
 });
 
 export type ProductData = z.infer<typeof ProductSchema>;
+export type ProductNoPriceData = Omit<ProductData, 'price'>;

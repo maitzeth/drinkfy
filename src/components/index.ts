@@ -5,6 +5,7 @@ export * from './shared/Navbar';
 export * from './shared/Header';
 export * from './shared/NotificationDot';
 export * from './shared/DividerTitle';
+export * from './shared/TextClamp';
 // Buttons
 export * from './shared/Button/ButtonDefault';
 export * from './shared/Button/ButtonPrimary';
@@ -14,3 +15,5 @@ export * from './shared/Button/ButtonQuaternary';
 export * from './shared/Button/ButtonQuinary';
 // Products
 export * from './shared/Product/ProductListItem';
+// Pages
+export * from './CategoriesBtnGroup';

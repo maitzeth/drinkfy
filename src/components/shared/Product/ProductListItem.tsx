@@ -6,6 +6,7 @@ import { ProductData } from '@/types/products';
 import { cn } from '@/common/utils';
 import Link from 'next/link';
 import { useCartStore } from '@/stores/cart';
+import { parseToUrl, formatCurrency } from '@/common/utils';
 
 type Props = {
   isOdd?: boolean;
@@ -13,7 +14,7 @@ type Props = {
 }
 
 export const ProductListItem = ({ isOdd, data }: Props) => {
-  const { brand, price } = data;
+  const { brand, price, id, image } = data;
   const { inc } = useCartStore();
 
   const handleAddProductToCart = () => {
@@ -29,7 +30,7 @@ export const ProductListItem = ({ isOdd, data }: Props) => {
         'rounded-product-list': !isOdd,
       })}
     >
-      <Link href="/" className="space-y-2">
+      <Link href={`${id}_${parseToUrl(brand)}`} className="space-y-2 focus">
         <header>
           <h4 
             className={cn("text-base text-black-3 font-medium mt-3 ml-3", {
@@ -40,19 +41,20 @@ export const ProductListItem = ({ isOdd, data }: Props) => {
           </h4>
         </header>
         <section>
-          <div className="relative h-[145px] w-full">
+          <div className="relative w-full">
             <Image
-              src="/products/modelo-especial.png"
+              src={image}
               alt="Your user avatar"
-              className="rounded-full"
-              fill
-              objectFit="cover"
+              className="mx-auto"
+              width={145}
+              height={145}
+              priority
             />
           </div>
         </section>
       </Link>
       <footer className="flex justify-between items-center">
-        <p className="text-black-3 ml-4 font-medium">${price}</p>
+        <p className="text-black-3 ml-4 font-medium">{formatCurrency(price)}</p>
         <ButtonQuinary type="button" onClick={handleAddProductToCart} aria-label="add product to cart">
           <PlusIcon status="white" />
         </ButtonQuinary>
