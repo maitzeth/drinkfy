@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <NextNProgress color={TAILWIND_COLORS.accent.DEFAULT} height={4} />
-      <main className={`pt-4 pb-24 bg-white-1 ${inter.className}`}>
+      <main className={`bg-white-1 ${inter.className}`}>
         <Component {...pageProps} />
       </main>
     </>

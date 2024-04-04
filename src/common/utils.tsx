@@ -44,4 +44,9 @@ export const getSlugElements = (slug: string) => {
   return null;
 };
 
+export const formatDescriptionToHTML = (description: string) => {
+  const paragraphs = description.split('\n');
+  return paragraphs.map((paragraph, index) => <p key={index} className="text-sm text-black-2">{paragraph}</p>);
+}
+
 
