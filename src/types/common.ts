@@ -3,3 +3,7 @@ export type withClassName<T = unknown> = T & {
 };
 
 export type Maybe<T> = T | null;
+
+export type FetchError = {
+  errors: string[]
+};

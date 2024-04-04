@@ -14,6 +14,7 @@ const BASE_CLASSNAME = `
   font-medium
   focus
   text-base
+  disabled:opacity-50
 `;
 
 export const ButtonPrimary = ({ onClick, children, ...rest }: Props) => {

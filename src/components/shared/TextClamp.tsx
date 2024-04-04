@@ -9,7 +9,7 @@ export const TextClamp = ({ text }: { text: string }) => {
   };
 
   return (
-    <>
+    <div>
       <div className={cn('transition-all', {
         'line-clamp-4': !expanded,
       })}>
@@ -18,6 +18,6 @@ export const TextClamp = ({ text }: { text: string }) => {
       <button type="button" className="text-sm font-bold text-accent" onClick={toggleExpansion}>
         Read {expanded ? 'less' : 'more'}
       </button>
-    </>
+    </div>
   );
 };
