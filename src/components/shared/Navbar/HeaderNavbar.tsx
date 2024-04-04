@@ -45,7 +45,7 @@ export const HeaderNavbar = (props: Props) => {
 
       <div className="hidden xl:block w-full max-w-[180px]">
         {/* Logo */}
-        <Link href={pathNames.home} className="flex gap-2 items-center">
+        <Link href={pathNames.home} className="flex gap-2 items-center focus">
           <div className="bg-accent rounded-xl w-12 h-12"  />
           <h1 className="text-black text-4xl font-bold">Drinkfy</h1>
         </Link>
@@ -58,7 +58,7 @@ export const HeaderNavbar = (props: Props) => {
               <Link
                 href={item.href}
                 className={
-                  cn("text-sm text-black-3 uppercase hover:text-accent transition-all", {
+                  cn("text-sm text-black-3 uppercase hover:text-accent transition-all focus", {
                     'text-accent': item.href === pathname,
                   })
                 }
