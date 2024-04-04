@@ -7,9 +7,9 @@ export const cn = (...inputs: ArgumentArray) => {
 
 export const parseToUrl = (inputString: string) => {
   // Convert the string to lowercase
-  let lowercaseString: string = inputString.toLowerCase();
+  let lowercaseString = inputString.toLowerCase();
   // Replace spaces with hyphens
-  let convertedString: string = lowercaseString.replace(/ /g, '-');
+  let convertedString = lowercaseString.replace(/ /g, '-');
   return convertedString.trim();
 }
 
@@ -23,7 +23,7 @@ export const formatCurrency = (value: number) => {
   // return numberFormat2.format(value);
 
   // For now we are going to use this approach until we have cents in our database
-  const dollars: number = Math.floor(value / 100);
-  const cents: number = value % 100;
+  const dollars = Math.floor(value / 100);
+  const cents = value % 100;
   return `$${dollars}.${cents.toString().padStart(2, '0')}`;
 }
