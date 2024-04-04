@@ -9,7 +9,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 import { pathNames } from '@/common/constants';
-import { useUpdateEffect } from 'react-use';
+import { useEffect } from 'react';
 
 type Props = {
   product: Maybe<ProductNoPriceData>;
@@ -19,10 +19,10 @@ type Props = {
 export default function ProductPage({ product }: Props) {
   const router = useRouter();
 
-  useUpdateEffect(() => {
+  useEffect(() => {
     if (!product) {
       toast.error('Product not found');
-      router.push(pathNames.home)
+      router.push(pathNames.home);
     }
   }, [product]);
   
