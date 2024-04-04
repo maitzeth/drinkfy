@@ -7,7 +7,8 @@ type Props = PropsWithChildren<ButtonAttrs & CustomBaseProps & {
 }>;
 
 const CLASSNAME = `
-  w-[87px]
+  min-w-[87px]
+  px-2
   h-[31px]
   bg-white
   rounded-full
