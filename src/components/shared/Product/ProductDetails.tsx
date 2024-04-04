@@ -11,21 +11,24 @@ import { Fragment } from 'react';
 import { ProductNoPriceData } from '@/types/products';
 import { ProductImage } from './ProductImage';
 import useSWR from 'swr';
-import { useQueryState } from 'nuqs'
+import { useQueryState } from 'nuqs';
+import { StockData } from '@/types/stock';
+import { FetchError } from '@/types/common';
+import Skeleton from 'react-loading-skeleton';
 
 type Props = {
   product: ProductNoPriceData;
 }
 
+type StockPriceResponse = StockData & FetchError;
+
 export const ProductDetails = ({ product }: Props) => {
   const [size, setSize] = useQueryState('size')
   const { image, brand, origin, information, skus } = product;
 
-  const { data, isLoading } = useSWR(size ? `/api/stock-price/${size}` : null, {
-    refreshInterval: 1000,
+  const { data, isLoading } = useSWR<StockPriceResponse>(size ? `/api/stock-price/${size}` : null, {
+    refreshInterval: 5000,
   });
-
-  console.log({ data, isLoading });
 
   return (
     <Fragment>
@@ -40,11 +43,19 @@ export const ProductDetails = ({ product }: Props) => {
               <div className="flex items-center gap-2">
                 <span className="text-sm text-black-2">Origin: {origin}</span>
                 <span className="h-[10px] w-[1px] bg-black-2" />
-                <span className="text-sm text-black-2">Stock: 456</span>
+                {isLoading ? (
+                  <Skeleton width={80} height={40} />
+                ) : (
+                  <span className="text-sm text-black-2">Stock: {data ? data.stock :  0}</span>
+                )}
               </div>
             </div>
             <div>
-              <p className="text-2xl text-accent font-bold">{formatCurrency(0)}</p>
+              {isLoading ? (
+                <Skeleton width={80} height={40} />
+              ) : (
+                <p className="text-2xl text-accent font-bold">{formatCurrency(data ? data.price : 0)}</p>
+              )}
             </div>
           </header>
           <section className="space-y-2">

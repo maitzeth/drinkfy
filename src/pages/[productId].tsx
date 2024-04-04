@@ -5,10 +5,11 @@ import { DetailsLayout } from '@/pages/layouts/DetailsLayout';
 import { ProductNoPriceData } from '@/types/products';
 import { Maybe } from '@/types/common';
 import { ProductDetails } from '@/components';
+import 'react-loading-skeleton/dist/skeleton.css'
 
 type Props = {
   product: Maybe<ProductNoPriceData>;
-  messages?: string[];
+  errors?: string[];
 };
 
 export default function ProductPage({ product }: Props) {
@@ -55,7 +56,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return {
       props: {
         product: null,
-        messages: ['Product not found']
+        errors: ['Product not found']
       },
     };
   }
