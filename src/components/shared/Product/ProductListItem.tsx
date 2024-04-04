@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { ProductData } from '@/types/products';
 import { cn } from '@/common/utils';
 import Link from 'next/link';
+import { useCartStore } from '@/stores/cart';
 
 type Props = {
   isOdd?: boolean;
@@ -12,10 +13,13 @@ type Props = {
 }
 
 export const ProductListItem = ({ isOdd, data }: Props) => {
-  const { brand, price, id } = data;
+  const { brand, price } = data;
+  const { inc } = useCartStore();
 
   const handleAddProductToCart = () => {
-    console.log('ProductListItem', id);
+    // Add product to cart
+    // Simulation
+    inc();
   };
 
   return (
