@@ -12,3 +12,5 @@ export * from './shared/Button/ButtonSecondary';
 export * from './shared/Button/ButtonTertiary';
 export * from './shared/Button/ButtonQuaternary';
 export * from './shared/Button/ButtonQuinary';
+// Products
+export * from './shared/Product/ProductListItem';

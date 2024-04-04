@@ -9,7 +9,7 @@ const inter = DM_Sans({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={`pt-4 ${inter.className}`}>
+    <main className={`pt-4 pb-24 ${inter.className}`}>
       <Component {...pageProps} />
     </main>
   );

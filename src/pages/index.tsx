@@ -1,20 +1,14 @@
 import { getProducts } from '@/common/api/products';
+import {
+  ButtonQuaternary,
+  DividerTitle,
+  ProductListItem,
+  SearchInput
+} from '@/components';
+import { DefaultLayout } from '@/pages/layouts/DefaultLayout';
 import { ProductData } from '@/types/products';
 import { GetServerSideProps } from 'next';
-import {
-  Container,
-  ButtonPrimary,
-  ButtonSecondary,
-  ButtonTertiary,
-  ButtonQuaternary,
-  ButtonQuinary,
-  SearchInput,
-  DividerTitle
-} from '@/components';
-import { ShoppingBagIcon } from '@/components/shared/icons/ShoppingBagIcon';
-import { PlusIcon } from '@/icons/PlusIcon';
 import Image from 'next/image';
-import { DefaultLayout } from '@/pages/layouts/DefaultLayout';
 
 type HomeProps = {
   products: ProductData[];
@@ -67,6 +61,12 @@ export default function Home({ products }: HomeProps) {
           </ButtonQuaternary>
         </div>
         <DividerTitle title="Popular" href="/drinks?popular=all" />
+        <section className="grid gap-4 grid-cols-2">
+          {products.map((product, index) => {
+            const isOdd = (index + 1) % 2 === 0;
+            return <ProductListItem key={product.id} isOdd={isOdd} data={product} />;
+          })}
+        </section>
       </header>
     </DefaultLayout>
   );
