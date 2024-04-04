@@ -5,11 +5,11 @@ import { DetailsLayout } from '@/pages/layouts/DetailsLayout';
 import { ProductNoPriceData } from '@/types/products';
 import { Maybe } from '@/types/common';
 import { ProductDetails } from '@/components';
-import 'react-loading-skeleton/dist/skeleton.css'
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 import { pathNames } from '@/common/constants';
 import { useEffect } from 'react';
+import 'react-loading-skeleton/dist/skeleton.css'
 
 type Props = {
   product: Maybe<ProductNoPriceData>;

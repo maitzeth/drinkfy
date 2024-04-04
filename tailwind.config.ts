@@ -16,6 +16,7 @@ const config: Config = {
         'product-list': '12px 32px 12px 12px',
         'product-list--odd': '32px 12px 12px 12px',
       },
+      'app-container': 'container mx-auto px-5',
       colors: TAILWIND_COLORS,
     },
   },
