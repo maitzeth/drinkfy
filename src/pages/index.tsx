@@ -9,6 +9,7 @@ import {
   ButtonQuaternary,
   ButtonQuinary,
   SearchInput,
+  DividerTitle
 } from '@/components';
 import { ShoppingBagIcon } from '@/components/shared/icons/ShoppingBagIcon';
 import { PlusIcon } from '@/icons/PlusIcon';
@@ -29,6 +30,8 @@ export default function Home({ products }: HomeProps) {
           <h1 className="text-2xl text-black-3 font-bold">Welcome Back!</h1>
         </div>
         <SearchInput placeholder="Search burger, pizza, drink or ect..." />
+        <DividerTitle title="Drink Category" href="/drinks?category=all" />
+        <DividerTitle title="Popular" href="/drinks?popular=all" />
       </header>
     </DefaultLayout>
   );
