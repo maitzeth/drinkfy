@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { pathNames } from '@/common/constants';
 import { cn } from '@/common/utils';
 import { usePathname } from 'next/navigation';
+import { CartIcon } from '@/components/CartIcon';
 
 // This variants can be renamed to something more meaningful
 // But for this example is enough to show the concept
@@ -70,7 +71,12 @@ export const HeaderNavbar = (props: Props) => {
         </ul>
       </nav>
 
-      <div className="w-full max-w-[180px] flex justify-end">
+      <div className="w-full max-w-[180px] flex justify-end items-center gap-4">
+        <Link href={pathNames.cart} className="focus">
+          <div className="relative">
+            <CartIcon />
+          </div>
+        </Link>
         <Image
           src="/images/user.jpg"
           height={40}
