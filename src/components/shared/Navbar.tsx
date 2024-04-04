@@ -7,12 +7,15 @@ import { SettingIcon } from '@/icons/SettingIcon';
 import Link from 'next/link';
 import { cn } from '@/common/utils';
 import { NotificationDot } from '@/components';
+import { useCartStore } from '@/stores/cart';
 
 const listIconClassName = 'w-11 h-11 rounded-full bg-transparent flex items-center justify-center relative'; 
 // TODO
 const activeShadow = 'w-11 h-11 absolute bg-opacity-25 rounded-full';
 
 export const Navbar = () => {
+  const { count } = useCartStore();
+  console.log(count);
   return (
     <Fragment>
       <nav className="px-4 py-4 bg-white fixed bottom-0 w-full">
@@ -36,7 +39,9 @@ export const Navbar = () => {
             className={cn(listIconClassName)}
           >
             <Link href="/" className="relative">
-              <NotificationDot className="top-[2px] right-[1px]" />
+              {count > 0 && (
+                <NotificationDot className="top-[2px] right-[1px]" />
+              )}
               <ShoppingBagIcon />
             </Link>
           </li>
