@@ -22,6 +22,4 @@ export default async function handler(
       error: error.message,
     });
   }
-
-  res.status(200).json({ name: "John Doe" });
 }
