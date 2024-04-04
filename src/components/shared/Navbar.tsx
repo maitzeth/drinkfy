@@ -9,7 +9,8 @@ import { cn } from '@/common/utils';
 import { NotificationDot } from '@/components';
 
 const listIconClassName = 'w-11 h-11 rounded-full bg-transparent flex items-center justify-center relative'; 
-const activeShadow = 'w-11 h-11 absolute bg-accent bg-opacity-25 rounded-full';
+// TODO
+const activeShadow = 'w-11 h-11 absolute bg-opacity-25 rounded-full';
 
 export const Navbar = () => {
   return (
