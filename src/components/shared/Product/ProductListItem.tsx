@@ -11,7 +11,6 @@ type Props = {
 }
 
 export const ProductListItem = ({ isOdd, data }: Props) => {
-  console.log(data);
   const { brand, price } = data;
 
   return (
@@ -42,7 +41,7 @@ export const ProductListItem = ({ isOdd, data }: Props) => {
       <footer className="flex justify-between items-center">
         <p className="text-black-3 ml-4 font-medium">${price}</p>
         <ButtonQuinary onClick={() => console.log('plus')}>
-          <PlusIcon />
+          <PlusIcon status="white" />
         </ButtonQuinary>
       </footer>
     </article>
