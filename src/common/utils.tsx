@@ -9,11 +9,11 @@ export const parseToUrl = (inputString: string) => {
   // Convert the string to lowercase
   let lowercaseString = inputString.toLowerCase();
   // Replace spaces with hyphens
-  let convertedString = lowercaseString.replace(/ /g, '-');
+  let convertedString = lowercaseString.replace(/ /g, '-').replace(/_/g, '-');
   return convertedString.trim();
 };
 
-export const formatCurrency = (value: number) => {
+export const formatCurrency = (val: number) => {
   // !important HELP NEEDED 
   // This could be a better approach but the prices seems to be integers
   // and right now we dont have the cents (Float) in our database
@@ -23,9 +23,14 @@ export const formatCurrency = (value: number) => {
   // return numberFormat2.format(value);
 
   // For now we are going to use this approach until we have cents in our database
-  const dollars = Math.floor(value / 100);
-  const cents = value % 100;
-  return `$${dollars}.${cents.toString().padStart(2, '0')}`;
+  let value = Math.floor(val);
+  const sign = value < 0 ? '-' : '';
+  const absoluteValue = Math.abs(value);
+
+  const dollars = Math.floor(absoluteValue / 100);
+  const cents = absoluteValue % 100;
+  
+  return `${sign}$${dollars}.${cents.toString().padStart(2, '0')}`;
 };
 
 export const getSlugElements = (slug: string) => {

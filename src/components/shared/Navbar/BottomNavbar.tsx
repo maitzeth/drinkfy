@@ -6,9 +6,9 @@ import { pathNames } from '@/common/constants';
 
 const listIconClassName = 'w-11 h-11 rounded-full bg-transparent flex items-center justify-center relative'; 
 
-import { HomeIcon } from '@/icons/HomeIcon';
-import { CheckOutIcon } from '@/icons/CheckOutIcon';
-import { SettingIcon } from '@/icons/SettingIcon';
+import { HomeIcon } from '../icons/HomeIcon';
+import { CheckOutIcon } from '../icons/CheckOutIcon';
+import { SettingIcon } from '../icons/SettingIcon';
 import { CartIcon } from '@/components/CartIcon';
 
 const bottomNavItems = [
