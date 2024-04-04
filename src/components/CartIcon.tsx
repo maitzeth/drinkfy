@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShoppingBagIcon } from '@/icons/ShoppingBagIcon';
+import { ShoppingBagIcon } from './shared/icons/ShoppingBagIcon';
 import { NotificationDot } from '@/components';
 import { useCartStore } from '@/stores/cart';
 import { colorStatus } from '@/components/shared/icons/withCustomIcon';

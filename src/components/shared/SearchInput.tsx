@@ -1,6 +1,6 @@
 import { cn } from '@/common/utils';
 import { InputHTMLAttributes } from 'react';
-import { ZoomIcon  } from '@/icons/ZoomIcon';
+import { ZoomIcon } from '@/components/shared/icons/ZoomIcon';
 
 export type Props = InputHTMLAttributes<HTMLInputElement> & {
   wrapperClassName?: string;

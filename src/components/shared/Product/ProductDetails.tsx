@@ -8,7 +8,7 @@ import {
   ImageWithFallback,
   ButtonDefault
 } from '@/components';
-import { ShoppingBagIcon } from '@/icons/ShoppingBagIcon';
+import { ShoppingBagIcon } from '../icons/ShoppingBagIcon';
 import { Fragment, useEffect } from 'react';
 import { ProductNoPriceData } from '@/types/products';
 import useSWR from 'swr';

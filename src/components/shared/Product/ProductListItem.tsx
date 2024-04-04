@@ -1,7 +1,6 @@
-import React, { MouseEvent } from 'react';
+import React from 'react';
 import { ButtonQuinary } from '@/components';
-import { PlusIcon } from '@/icons/PlusIcon';
-import Image from 'next/image';
+import { PlusIcon } from '@/components/shared/icons/PlusIcon';
 import { ProductData } from '@/types/products';
 import { cn } from '@/common/utils';
 import Link from 'next/link';
