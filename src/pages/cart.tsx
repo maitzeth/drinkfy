@@ -1,5 +1,5 @@
 import React from 'react';
-import { DefaultLayout } from '@/pages/layouts/DefaultLayout';
+import { DefaultLayout } from '@/components/layouts/DefaultLayout';
 
 export default function CartPage() {
   return (
