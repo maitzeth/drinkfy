@@ -13,11 +13,13 @@ export default async function handler(
     const { id } = req.query as ReqData;
     const stock = await getStockPriceById(id);
     res.status(200).json(stock);
-  } catch (_err) {
+  } catch (err) {
+    const error = err as Error;
+
     res.status(400).json({
       stock: 0,
       price: 0,
-      errors: ["Invalid ID"]
+      error: error.message,
     });
   }
 
