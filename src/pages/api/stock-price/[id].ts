@@ -12,11 +12,12 @@ export default async function handler(
   try {
     const { id } = req.query as ReqData;
     const stock = await getStockPriceById(id);
-    res.json(JSON.parse(JSON.stringify(stock)))
+    throw new Error('Error message');
+    return res.json(JSON.parse(JSON.stringify(stock)));
   } catch (err) {
     const error = err as Error;
 
-    res.status(400).json({
+    return res.status(400).json({
       stock: 0,
       price: 0,
       error: error.message,

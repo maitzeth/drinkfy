@@ -72,7 +72,7 @@ export const HeaderNavbar = (props: Props) => {
       </nav>
 
       <div className="w-full max-w-[180px] flex justify-end items-center gap-4">
-        <Link href={pathNames.cart} className="focus">
+        <Link href={pathNames.cart} className="focus hidden lg:block">
           <div className="relative">
             <CartIcon />
           </div>

@@ -30,7 +30,7 @@ const bottomNavItems = [
   },
 ];
 
-export const BottonNavbar = () => {
+export const BottomNavbar = () => {
   const pathname = usePathname();
 
   return (
